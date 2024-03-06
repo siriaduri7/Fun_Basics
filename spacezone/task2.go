@@ -23,7 +23,7 @@ func main() {
 
 	var b *int = &a
 
-	var c **int = &b
+	var c *int = &b
 
 	var l ***int = &c
 
