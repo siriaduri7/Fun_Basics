@@ -18,17 +18,20 @@ func main() {
 	fmt.Println(x, y)
 
 	// TODO 14: define a pointer of pointer of pointer int variable and try to print the value and address of the variable
-
+	fmt.Println("************************************")
 	var a int = 20
 
 	var b *int = &a
 
-	var c *int = &b
+	var c **int = &b
 
 	var l ***int = &c
 
+	**c = 40
+
 	fmt.Println(***l)
 	fmt.Println(&a, &b, &c)
+	fmt.Println("************************************")
 
 	// TODO 15: Define a new pointer q and assign the address of the pointer p to it (p is pointer to int i variable).
 	//			Print the type of the new pointer q.

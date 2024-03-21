@@ -24,8 +24,10 @@ func main() {
 	var doub int = 30
 
 	doubleval(&doub)
-	fmt.Println(doub)
+	fmt.Println("++++++++++++++++++++++++++++++")
 
+	fmt.Println(doub)
+	fmt.Println("++++++++++++++++++++++++++++++")
 	//Develop a simple Go program that allocates memory for an integer using the new keyword, sets its value, and then prints the value and the memory address.
 
 	var o *int = new(int)
