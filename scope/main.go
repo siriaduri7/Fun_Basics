@@ -19,8 +19,9 @@ func main() {
 	buyPhoneInCart(PhoneInCart)
 	PhoneInCart1 := removeFromCart(phones)
 	buyPhoneInCart(PhoneInCart1)
-	listing1 := wishlistitems(phones, 1)
-	fmt.Println(listing1)
+	listing1, removeditem := wishlistitems(phones, 1)
+	fmt.Println("added new listing of phones", listing1)
+	fmt.Println("added deleted item to wishlist", removeditem)
 
 }
 
@@ -79,19 +80,23 @@ func removeFromCart(phones []phone_pkg.Phone) []phone_pkg.Phone {
 //phoneInCart := addSmartPhoneToCart(phones)
 //fmt.Println(phoneInCart)
 
-func wishlistitems(phones []phone_pkg.Phone, i int) []phone_pkg.Phone {
+func wishlistitems(phones []phone_pkg.Phone, i int) ([]phone_pkg.Phone, phone_pkg.Phone) {
 	var listing []phone_pkg.Phone
+	var removed phone_pkg.Phone
 	//deleting p2
 	for index, phone3 := range phones {
 
 		if index != i {
 			listing = append(listing, phone3)
+
+		} else {
+			removed = phone3
+
 		}
 		// listing = append(listing, phone3[:index])
 		// listing = append(listing, phone3[index+1:])
-		phone3.Wishlist()
 
 	}
-	return listing
+	return listing, removed
 
 }
