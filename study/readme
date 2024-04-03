@@ -1,0 +1,27 @@
+/// array deleted adde to wishlist/////
+type User struct {
+	name string
+	// phonesInCart []products.Services
+	phonesInCart    []phone_pkg.Phone
+	PhoneInWishlist []phone_pkg.Phone
+}
+
+func (u *User) DeleteFromCart(position int) error {
+	if position < 0 || position >= len(u.phonesInCart) {
+		return errors.New("invalid position")
+
+	}
+	for i, phone := range u.phonesInCart {
+		if i == position {
+			u.phonesInCart = append(u.phonesInCart[:i], u.phonesInCart[i+1:]...)
+			deletedPhone := u.phonesInCart[position]
+			u.PhoneInWishlist = append(u.PhoneInWishlist, deletedPhone)
+			fmt.Println("deleted phones are added to wishlist", u.PhoneInWishlist)
+			fmt.Println(u.name, " delete:1", phone.GetName(), "from cart, nowitems in cart", len(u.phonesInCart))
+
+		}
+
+	}
+	return nil
+
+}
